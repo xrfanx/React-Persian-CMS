@@ -1,7 +1,3 @@
-import "./Comments.css";
-
 export default function Comments() {
-  return (
-    <div>Comments</div>
-  )
+  return <div>Comments</div>;
 }
