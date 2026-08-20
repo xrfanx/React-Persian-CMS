@@ -1,0 +1,79 @@
+.ProductTableContainer {
+    background-color: var(--purple);
+    margin-bottom: 1rem;
+    min-height: 10rem;
+    border-top-right-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+.product-table {
+    width: 90%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    background-color: var(--white);
+    position: relative;
+    right: 5%;
+}
+
+.product-table th,
+.product-table td {
+    padding: 0.5rem;
+    text-align: center;
+}
+
+.product-table th {
+    background-color: #f0f0f0;
+    color: var(--purpleHard);
+}
+
+/* .product-table td {
+    border: 1px solid var(--purpleHard);
+} */
+
+.ProductTableImg {
+    width: 4rem;
+    height: 4rem;
+    object-fit: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    right: 1rem;
+    top: 1rem;
+}
+
+.ProductTablebtn {
+    background-color: var(--white);
+    color: var(--purpleHard);
+    border: 1px solid var(--purpleHard);
+    outline: none;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+    position: relative;
+    align-items: center;
+    width: 5rem;
+    font-size: 1rem;
+    margin: 0 0.5rem;
+}
+
+.ProductTablebtn:hover {
+    background-color: var(--purpleHard);
+    color: var(--white);
+    box-shadow: 0 0 0.3rem var(--white);
+}
+
+.ProductTablebtn-delete {
+   background-color: rgb(255, 39, 39);
+   color: var(--white);
+   border: 1px solid rgb(255, 39, 39);
+}
+
+.ProductTablebtn-delete:hover {
+    background-color: var(--white);
+    color: rgb(255, 39, 39);
+    border: 1px solid rgb(255, 39, 39);
+}

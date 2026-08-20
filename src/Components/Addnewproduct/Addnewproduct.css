@@ -1,0 +1,109 @@
+.product-main {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem;
+    background-color: var(--purple);
+    border-top-right-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+    width: 95%;
+    height: 55vh;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+}
+
+.product-title {
+    font-size: 1.5rem;
+    color: var(--white);
+    margin-bottom: 1rem;
+}
+
+.add-product-form {
+    font-size: 1.2rem;
+}
+
+.inputHandler {
+    border: 1px solid var(--purpleHard);
+    margin: 1rem 0 1rem 1rem;
+    width: 11rem;
+    border-radius: 0.5rem;
+    outline: none;
+    color: var(--purpleHard);
+    font-size: 0.9rem;
+    padding: 0.3rem;
+    transition: all 0.3s ease-out;
+}
+
+.inputHandler::placeholder {
+    color: var(--purple);
+}
+
+.textHandler {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.imageHandler {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.selectHandler {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 1rem;
+}
+
+#product-category {
+    position: relative;
+    right: -3rem;
+}
+
+#product-like {
+    position: relative;
+    right: -3rem;
+}
+
+.selectHandler {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+#product-like-number {
+    position: relative;
+    right: -8rem;
+    color: var(--purpleHard);
+    width: 7rem;
+}
+
+
+
+.add-product-submit {
+    background-color: var(--white);
+    color: var(--purpleHard);
+    border: none;
+    outline: none;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+    position: relative;
+    right: 40%;
+    margin-top: 5rem;
+    align-items: center;
+    width: 10rem;
+    font-size: 1.2rem;
+}
+
+.add-product-submit:hover {
+    background-color: var(--purpleHard);
+    color: var(--white);
+}
+

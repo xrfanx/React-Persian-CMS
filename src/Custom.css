@@ -1,0 +1,23 @@
+@import "./reset.css";
+
+@font-face {
+    font-family: vazirmatn;
+    src: url(./assets/Fonts/Vazirmatn-Regular.woff2);
+}
+
+:root {
+    --white: #FFFFFF;
+    --white-50: #f0f0f0;
+    --purple: #B057F7;
+    --purpleHard: #7209C8;
+}
+
+body {
+    background-color: var(--white-50);
+    display: flex;
+    direction: rtl;
+}
+
+*, body, html {
+    font-family: vazirmatn;
+} 
