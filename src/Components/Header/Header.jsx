@@ -4,14 +4,14 @@ import { CiBrightnessUp } from "react-icons/ci";
 
 export default function Header() {
   return (
-    <div className="flex justify-between p-4 bg-[var(--purple)] text-[var(--white)] h-20 rounded-tr-[2rem] rounded-bl-[2rem]">
+    <div className="sticky top-0 flex justify-between w-5xl p-4 bg-[var(--purple)] text-[var(--white)] h-20 rounded-tr-[2rem] rounded-bl-[2rem]">
       <div className="flex items-center gap-4">
         <img
           className="w-16 h-16 rounded-full object-cover shadow-[0_0_0.3rem_var(--white)] transition-all duration-300 ease-in-out"
           src="/image/profile.webp"
           alt="admin-profile"
         />
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col">
           <h1 className="text-[1.3rem] font-extrabold">عرفان روزبهانی</h1>
           <h3 className="text-base">برنامه نویس فرانت اند</h3>
         </div>
