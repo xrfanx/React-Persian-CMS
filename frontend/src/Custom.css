@@ -5,6 +5,12 @@
     src: url(./assets/Fonts/Vazirmatn-Regular.woff2);
 }
 
+@font-face {
+    font-family: vazirmatn;
+    src: url(./assets/Fonts/Vazirmatn-Bold.woff2);
+    font-weight: bold;
+}
+
 :root {
     --white: #FFFFFF;
     --white-50: #f0f0f0;

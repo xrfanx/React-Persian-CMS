@@ -12,7 +12,7 @@ export default function DeleteModal({ onCancel, onConfirm }) {
          border-0 outline-none rounded-lg p-2 cursor-pointer transition-all
           duration-300 ease-out mt-10 items-center w-40 text-[1.2rem] hover:bg-[var(--purpleHard)]
            hover:text-[var(--white)]"
-          onClick={onCancel}
+          onClick={onConfirm}
         >
           بله
         </button>
@@ -21,7 +21,7 @@ export default function DeleteModal({ onCancel, onConfirm }) {
          border-0 outline-none rounded-lg p-2 cursor-pointer transition-all 
          duration-300 ease-out mt-10 items-center w-40 text-[1.2rem] hover:bg-[var(--purpleHard)]
           hover:text-[var(--white)]"
-          onClick={onConfirm}
+          onClick={onCancel}
         >
           خیر
         </button>
