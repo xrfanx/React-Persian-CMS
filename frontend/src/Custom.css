@@ -2,7 +2,8 @@
 
 @font-face {
     font-family: vazirmatn;
-    src: url(./assets/Fonts/Vazirmatn-Regular.woff2);
+    src: url(./assets/Fonts/Vazirmatn-Regular.woff2) format("woff2");
+    font-display: swap;
 }
 
 @font-face {

@@ -16,7 +16,7 @@ export default function Sidebar() {
       {/* دکمه همبرگری فقط در موبایل/تبلت */}
       <button
         onClick={toggleSidebar}
-        className="md:hidden fixed top-4 right-4 z-50 p-2 bg-(--purpleHard) text-(--white) rounded-lg text-2xl outline-none border-0 cursor-pointer"
+        className="md:hidden fixed top-4 right-4 z-50  p-2 bg-(--purpleHard) text-(--white) rounded-lg text-2xl outline-none border-0 cursor-pointer"
       >
         {isOpen ? <IoClose /> : <IoMenu />}
       </button>

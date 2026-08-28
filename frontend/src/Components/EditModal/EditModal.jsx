@@ -1,7 +1,7 @@
 import ReactDOM from "react-dom";
 import { useEffect } from "react";
 
-export default function EditModal({ children, onClose, onSubmit }) {
+export default function EditModal({ children, onClose }) {
 
     useEffect(() => {
       const checkKey = (event) => {
@@ -21,9 +21,7 @@ export default function EditModal({ children, onClose, onSubmit }) {
     <div
       className="bg-black/50 fixed inset-0 top-0 left-0 flex justify-center items-center"
       id="exampleModal"
-      tabIndex="-1"
       aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
       onClick={onClose}
     >
       {children}
