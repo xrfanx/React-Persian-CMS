@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import DeleteModal from "../DeleteModal/DeleteModal";
 import DetailsModal from "../DetailsModal/DetailsModal";
@@ -7,7 +6,10 @@ import ErrorBox from "../ErrorBox/ErrorBox";
 import HotToast from "../HotToast/HotToast";
 import toast from "react-hot-toast";
 
+// finished imports
+
 export default function ProductTable({ allProducts, getAllProducts }) {
+  // states
   const [isShowDeleteModal, setIsShowDeleteModal] = useState(false);
   const [isShowDetailsModal, setIsShowDetailsModal] = useState(false);
   const [isShowEditModal, setIsShowEditModal] = useState(false);
@@ -21,12 +23,20 @@ export default function ProductTable({ allProducts, getAllProducts }) {
   const [productNewSale, setProductNewSale] = useState("");
   const [productNewColors, setProductNewColors] = useState("");
 
-  
- 
+  // finished states
 
+  //  handeling states
   const DeleteModalCancelAction = () => {
     setIsShowDeleteModal(false);
   };
+
+  const closeDetailsModal = () => {
+    setIsShowDetailsModal(false);
+  };
+
+  // finished handeling states
+
+  // functions and fetchs
   const DeleteModalConfirmAction = () => {
     fetch(`http://localhost:3000/api/products/${productID}`, {
       method: "DELETE",
@@ -42,11 +52,9 @@ export default function ProductTable({ allProducts, getAllProducts }) {
         toast.error("امکان حذف محصول وجود ندارد");
       });
   };
+  // finished functions and fetchs
 
-  const closeDetailsModal = () => {
-    setIsShowDetailsModal(false);
-  };
-
+  // Mix functions and fetchs and states
   const updateProductInfo = (event) => {
     event.preventDefault();
 
@@ -59,6 +67,7 @@ export default function ProductTable({ allProducts, getAllProducts }) {
       sale: productNewSale,
       colors: productNewColors,
     };
+
     fetch(`http://localhost:3000/api/products/${productID}`, {
       method: "PUT",
       headers: {
@@ -77,6 +86,8 @@ export default function ProductTable({ allProducts, getAllProducts }) {
         toast.error("امکان ویرایش محصول وجود ندارد");
       });
   };
+  // finished Mix functions and fetchs and states
+
   return (
     <>
       <HotToast />
@@ -103,75 +114,83 @@ export default function ProductTable({ allProducts, getAllProducts }) {
               </tr>
             </thead>
 
-            {allProducts.slice().reverse().map((product) => (
-              <tbody key={product.id}>
-                <tr className="text-(--purpleHard)">
-                  <td className="p-2 text-center">
-                    <img
-                      src={product.img}
-                      alt="product"
-                      className="w-16 h-16 object-contain flex justify-center items-center relative right-4 top-0"
-                    />
-                  </td>
-                  <td className="p-2 text-center">{product.title}</td>
-                  <td className="p-2 text-center">{product.price.toLocaleString()} تومان</td>
-                  <td className="p-2 text-center">{product.count}</td>
-                  <td className="p-2 text-center">
-                    <button
-                      className="bg-(--white) text-(--purpleHard)
+            {allProducts
+              .slice()
+              .reverse()
+              .map((product) => (
+                <tbody key={product.id}>
+                  <tr className="text-(--purpleHard)">
+                    <td className="p-2 text-center">
+                      <img
+                        src={product.img}
+                        alt="product"
+                        className="w-16 h-16 object-contain flex justify-center items-center relative right-4 top-0"
+                      />
+                    </td>
+                    <td className="p-2 text-center">{product.title}</td>
+                    <td className="p-2 text-center">
+                      {product.price.toLocaleString()} تومان
+                    </td>
+                    <td className="p-2 text-center">{product.count}</td>
+                    <td className="p-2 text-center">
+                      <button
+                        className="bg-(--white) text-(--purpleHard)
                        border border-(--purpleHard) outline-none rounded-lg p-2
                         cursor-pointer transition-all duration-300 ease-out relative
                          items-center w-20 text-base mx-2 hover:bg-(--purpleHard)
                           hover:text-(--white) hover:shadow-[0_0_0.3rem_var(--white)]"
-                      onClick={() => {
-                        setIsShowDetailsModal(true);
-                        setMainProductInfos(product);
-                      }}
-                    >
-                      جزئیات
-                    </button>
-                    <button
-                      className="bg-(--white) text-(--purpleHard)
+                        onClick={() => {
+                          setIsShowDetailsModal(true);
+                          setMainProductInfos(product);
+                        }}
+                      >
+                        جزئیات
+                      </button>
+                      <button
+                        className="bg-(--white) text-(--purpleHard)
                        border border-(--purpleHard) outline-none rounded-lg p-2 
                        cursor-pointer transition-all duration-300 ease-out relative 
                        items-center w-20 text-base mx-2 hover:bg-(--purpleHard)
                         hover:text-(--white) hover:shadow-[0_0_0.3rem_var(--white)]"
-                      onClick={() => {
-                        setIsShowEditModal(true);
-                        setProductID(product.id);
-                        setProductNewTitle(product.title);
-                        setProductNewPrice(product.price);
-                        setProductNewCount(product.count);
-                        setProductNewImg(product.img);
-                        setProductNewPopularity(product.popularity);
-                        setProductNewSale(product.sale);
-                        setProductNewColors(product.colors);
-                      }}
-                    >
-                      ویرایش
-                    </button>
-                    <button
-                      className="bg-[rgb(255,39,39)] text-(--white) border border-[rgb(255,39,39)]
+                        onClick={() => {
+                          setIsShowEditModal(true);
+                          setProductID(product.id);
+                          setProductNewTitle(product.title);
+                          setProductNewPrice(product.price);
+                          setProductNewCount(product.count);
+                          setProductNewImg(product.img);
+                          setProductNewPopularity(product.popularity);
+                          setProductNewSale(product.sale);
+                          setProductNewColors(product.colors);
+                        }}
+                      >
+                        ویرایش
+                      </button>
+                      <button
+                        className="bg-[rgb(255,39,39)] text-(--white) border border-[rgb(255,39,39)]
                        outline-none rounded-lg p-2 cursor-pointer transition-all duration-300 ease-out relative items-center 
                        w-20 text-base mx-2 hover:bg-(--white) hover:text-[rgb(255,39,39)] hover:border-[rgb(255,39,39)]"
-                      onClick={() => {
-                        setIsShowDeleteModal(true);
-                        setProductID(product.id);
-                      }}
-                    >
-                      حذف
-                    </button>
-                  </td>
-                </tr>
-              </tbody>
-            ))}
+                        onClick={() => {
+                          setIsShowDeleteModal(true);
+                          setProductID(product.id);
+                        }}
+                      >
+                        حذف
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              ))}
           </table>
+          {/* modals */}
           {isShowDeleteModal && (
             <DeleteModal
+              title="آیا از حذف محصول اطمینان دارید؟"
               onCancel={DeleteModalCancelAction}
               onConfirm={DeleteModalConfirmAction}
             />
           )}
+
           {isShowDetailsModal && (
             <DetailsModal onHide={closeDetailsModal}>
               <table
@@ -196,6 +215,7 @@ export default function ProductTable({ allProducts, getAllProducts }) {
               </table>
             </DetailsModal>
           )}
+
           {isShowEditModal && (
             <EditModal onClose={() => setIsShowEditModal(false)}>
               <form
@@ -231,8 +251,8 @@ export default function ProductTable({ allProducts, getAllProducts }) {
               placeholder:text-(--purple) border-b border-(--purpleHard)"
                     type="text"
                     placeholder="موجودی محصول"
-                     value={productNewCount}
-                     onChange={(event) => setProductNewCount(event.target.value)}
+                    value={productNewCount}
+                    onChange={(event) => setProductNewCount(event.target.value)}
                   />
                   <input
                     className="border-0 outline-none bg-transparent text-(--purpleHard)
@@ -248,7 +268,9 @@ export default function ProductTable({ allProducts, getAllProducts }) {
                     type="text"
                     placeholder="محبوبیت محصول"
                     value={productNewPopularity}
-                    onChange={(event) => setProductNewPopularity(event.target.value)}
+                    onChange={(event) =>
+                      setProductNewPopularity(event.target.value)
+                    }
                   />
                   <input
                     className="border-0 outline-none bg-transparent text-(--purpleHard)
@@ -264,7 +286,9 @@ export default function ProductTable({ allProducts, getAllProducts }) {
                     type="text"
                     placeholder="تعداد رنگ بندی محصول"
                     value={productNewColors}
-                    onChange={(event) => setProductNewColors(event.target.value)}
+                    onChange={(event) =>
+                      setProductNewColors(event.target.value)
+                    }
                   />
                 </div>
 
@@ -282,6 +306,7 @@ export default function ProductTable({ allProducts, getAllProducts }) {
       ) : (
         <ErrorBox error={"محصولی یافت نشد"} />
       )}
+      {/* end modals */}
     </>
   );
 }

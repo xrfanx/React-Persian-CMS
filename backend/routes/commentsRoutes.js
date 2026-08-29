@@ -43,4 +43,36 @@ commentsRouter.put("/:commentID", (req, res) => {
   });
 });
 
+// ==================== کدهای جدید تایید و رد کامنت ====================
+
+commentsRouter.post("/accept/:commentID", (req, res) => {
+  let commentID = req.params.commentID;
+  console.log(commentID);
+  let editCommentQuery = `UPDATE Comments SET isAccept = 1 WHERE id = ${commentID}`;
+
+  SabzLearnShopDB.query(editCommentQuery, (err, result) => {
+    if (err) {
+      res.send(null);
+    } else {
+      res.send(result);
+    }
+  });
+});
+
+commentsRouter.post("/reject/:commentID", (req, res) => {
+  let commentID = req.params.commentID;
+  console.log(commentID);
+  let editCommentQuery = `UPDATE Comments SET isAccept = 0 WHERE id = ${commentID}`;
+
+  SabzLearnShopDB.query(editCommentQuery, (err, result) => {
+    if (err) {
+      res.send(null);
+    } else {
+      res.send(result);
+    }
+  });
+});
+
+// =====================================================================
+
 module.exports = commentsRouter;
