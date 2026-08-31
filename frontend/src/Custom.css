@@ -14,9 +14,19 @@
 
 :root {
     --white: #FFFFFF;
+    /* --white: #000000; */
     --white-50: #f0f0f0;
+    /* --white-50: #353434; */
     --purple: #B057F7;
     --purpleHard: #7209C8;
+}
+
+body.dark {
+    --white: #d9c6f6;
+    --white-50: #18121F;
+
+    --purple: #8B3DCC;
+    --purpleHard: #390463;
 }
 
 body {

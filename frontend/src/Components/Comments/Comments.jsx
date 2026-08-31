@@ -147,16 +147,17 @@ export default function Comments() {
       className="w-full bg-(--purple) min-h-60 mt-4 rounded-tr-4xl
      rounded-bl-4xl p-6"
     >
+      <h1 className="text-4xl font-bold text-center text-(--white) -mt-2 mb-4">کامنت ها</h1>
       {allComments.length ? (
         <table className="w-full bg-(--white) border-collapse text-(--purpleHard) text-center">
           <thead>
             <tr>
-              <th className="py-4">نام</th>
-              <th>محصول</th>
-              <th className="w-50">کامنت</th>
-              <th className="pl-10">تاریخ</th>
-              <th>ساعت</th>
-              <th>عملیات</th>
+              <th className="py-4 bg-[#f0f0f0]">نام</th>
+              <th className="bg-[#f0f0f0]">محصول</th>
+              <th className="w-50 bg-[#f0f0f0]">کامنت</th>
+              <th className="pl-10 bg-[#f0f0f0]">تاریخ</th>
+              <th className="bg-[#f0f0f0]">ساعت</th>
+              <th className="bg-[#f0f0f0]">عملیات</th>
             </tr>
           </thead>
 
@@ -241,7 +242,7 @@ export default function Comments() {
       )}
 
       {isShowDeleteModal && (
-        <DeleteModal onCancel={closeDeleteModal} onConfirm={deleteComment} />
+        <DeleteModal onCancel={closeDeleteModal} onConfirm={deleteComment} title="آیا از حذف کامنت اطمینان دارید؟" />
       )}
 
       {isShowEditModal && (

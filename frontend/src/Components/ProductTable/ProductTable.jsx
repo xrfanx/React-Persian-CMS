@@ -9,6 +9,16 @@ import toast from "react-hot-toast";
 // finished imports
 
 export default function ProductTable({ allProducts, getAllProducts }) {
+  // styles
+  const thStyle = "p-2 text-center bg-[#f0f0f0] text-(--purpleHard)";
+  const detailisBtnStyle =
+    "bg-(--white) text-(--purpleHard) border border-(--purpleHard) outline-none rounded-lg p-2 cursor-pointer transition-all duration-300 ease-out relative items-center w-20 text-base mx-2 hover:bg-(--purpleHard) hover:text-(--white) hover:shadow-[0_0_0.3rem_var(--white)]";
+  const editBtnStyle =
+    "bg-(--white) text-(--purpleHard) border border-(--purpleHard) outline-none rounded-lg p-2 cursor-pointer transition-all duration-300 ease-out relative items-center w-20 text-base mx-2 hover:bg-(--purpleHard) hover:text-(--white) hover:shadow-[0_0_0.3rem_var(--white)]";
+  const deleteBtnStyle =
+    "bg-[rgb(255,39,39)] text-(--white) border border-[rgb(255,39,39)] outline-none rounded-lg p-2 cursor-pointer transition-all duration-300 ease-out relative items-center w-20 text-base mx-2 hover:bg-(--white) hover:text-[rgb(255,39,39)] hover:border-[rgb(255,39,39)]";
+  // finished styles
+
   // states
   const [isShowDeleteModal, setIsShowDeleteModal] = useState(false);
   const [isShowDetailsModal, setIsShowDetailsModal] = useState(false);
@@ -93,24 +103,18 @@ export default function ProductTable({ allProducts, getAllProducts }) {
       <HotToast />
       {allProducts.length ? (
         <div className="bg-(--purple) mb-4 min-h-40 rounded-tr-2xl rounded-bl-2xl p-4 mt-4">
+          <h1 className="text-4xl font-bold text-center text-(--white) mb-4">
+            محصولات
+          </h1>
+
           <table className="w-[90%] border-collapse mt-4 bg-(--white) relative right-[5%]">
             <thead>
               <tr>
-                <th className="p-2 text-center bg-[#f0f0f0] text-(--purpleHard)">
-                  عکس
-                </th>
-                <th className="p-2 text-center bg-[#f0f0f0] text-(--purpleHard)">
-                  نام
-                </th>
-                <th className="p-2 text-center bg-[#f0f0f0] text-(--purpleHard)">
-                  قیمت
-                </th>
-                <th className="p-2 text-center bg-[#f0f0f0] text-(--purpleHard)">
-                  موجودی
-                </th>
-                <th className="p-2 text-center bg-[#f0f0f0] text-(--purpleHard)">
-                  عملیات
-                </th>
+                <th className={thStyle}>عکس</th>
+                <th className={thStyle}>نام</th>
+                <th className={thStyle}>قیمت</th>
+                <th className={thStyle}>موجودی</th>
+                <th className={thStyle}>عملیات</th>
               </tr>
             </thead>
 
@@ -134,11 +138,7 @@ export default function ProductTable({ allProducts, getAllProducts }) {
                     <td className="p-2 text-center">{product.count}</td>
                     <td className="p-2 text-center">
                       <button
-                        className="bg-(--white) text-(--purpleHard)
-                       border border-(--purpleHard) outline-none rounded-lg p-2
-                        cursor-pointer transition-all duration-300 ease-out relative
-                         items-center w-20 text-base mx-2 hover:bg-(--purpleHard)
-                          hover:text-(--white) hover:shadow-[0_0_0.3rem_var(--white)]"
+                        className={detailisBtnStyle}
                         onClick={() => {
                           setIsShowDetailsModal(true);
                           setMainProductInfos(product);
@@ -147,11 +147,7 @@ export default function ProductTable({ allProducts, getAllProducts }) {
                         جزئیات
                       </button>
                       <button
-                        className="bg-(--white) text-(--purpleHard)
-                       border border-(--purpleHard) outline-none rounded-lg p-2 
-                       cursor-pointer transition-all duration-300 ease-out relative 
-                       items-center w-20 text-base mx-2 hover:bg-(--purpleHard)
-                        hover:text-(--white) hover:shadow-[0_0_0.3rem_var(--white)]"
+                        className={editBtnStyle}
                         onClick={() => {
                           setIsShowEditModal(true);
                           setProductID(product.id);
@@ -167,9 +163,7 @@ export default function ProductTable({ allProducts, getAllProducts }) {
                         ویرایش
                       </button>
                       <button
-                        className="bg-[rgb(255,39,39)] text-(--white) border border-[rgb(255,39,39)]
-                       outline-none rounded-lg p-2 cursor-pointer transition-all duration-300 ease-out relative items-center 
-                       w-20 text-base mx-2 hover:bg-(--white) hover:text-[rgb(255,39,39)] hover:border-[rgb(255,39,39)]"
+                        className={deleteBtnStyle}
                         onClick={() => {
                           setIsShowDeleteModal(true);
                           setProductID(product.id);
