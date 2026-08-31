@@ -1,10 +1,11 @@
+
 import { useState } from "react";
 import { IoHomeOutline, IoBasketOutline, IoMenu, IoClose } from "react-icons/io5";
 import { SlBasket } from "react-icons/sl";
 import { FaRegComment } from "react-icons/fa";
 import { LuUsers } from "react-icons/lu";
 import { MdOutlineLocalOffer } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -41,64 +42,64 @@ export default function Sidebar() {
 
         <ul className="list-none p-0 m-0 text-right pb-4 mb-4 flex flex-col gap-4 items-center justify-center mt-4">
           <li className="p-2 rounded-lg transition-all duration-300 ease-in-out cursor-pointer flex items-center justify-center gap-2 text-base text-(--white) no-underline w-[75%] md:w-[65%] border border-(--white) hover:bg-(--purpleHard) first:rounded-tl-[1.2rem] first:mb-2">
-            <Link
+            <NavLink
               onClick={() => setIsOpen(false)}
               className="no-underline text-(--white) flex items-center justify-between w-full"
               to={"/"}
             >
               <IoHomeOutline />
               صفحه اصلی
-            </Link>
+            </NavLink>
           </li>
-          <li className="p-2 rounded-lg transition-all duration-300 ease-in-out cursor-pointer flex items-center justify-center gap-2 text-base text-(--white) no-underline w-[75%] md:w-[65%] border border-(--white) bg-(--purpleHard) hover:bg-(--purpleHard)">
-            <Link
+          <li className="p-2 rounded-lg transition-all duration-300 ease-in-out cursor-pointer flex items-center justify-center gap-2 text-base text-(--white) no-underline w-[75%] md:w-[65%] border border-(--white) hover:bg-(--purpleHard)">
+            <NavLink
               onClick={() => setIsOpen(false)}
-              className="no-underline text-(--white) flex items-center justify-between w-full"
+              className={({ isActive }) => `no-underline text-(--white) flex items-center justify-between w-full ${isActive ? "active" : ""}`}
               to={"/products"}
             >
               <SlBasket />
               محصولات
-            </Link>
+            </NavLink>
           </li>
           <li className="p-2 rounded-lg transition-all duration-300 ease-in-out cursor-pointer flex items-center justify-center gap-2 text-base text-(--white) no-underline w-[75%] md:w-[65%] border border-(--white) hover:bg-(--purpleHard)">
-            <Link
+            <NavLink
               onClick={() => setIsOpen(false)}
               className="no-underline text-(--white) flex items-center justify-between w-full"
               to={"/comments"}
             >
               <FaRegComment />
               کامنت‌ ها
-            </Link>
+            </NavLink>
           </li>
           <li className="p-2 rounded-lg transition-all duration-300 ease-in-out cursor-pointer flex items-center justify-center gap-2 text-base text-(--white) no-underline w-[75%] md:w-[65%] border border-(--white) hover:bg-(--purpleHard)">
-            <Link
+            <NavLink
               onClick={() => setIsOpen(false)}
               className="no-underline text-(--white) flex items-center justify-between w-full"
               to={"/users"}
             >
               <LuUsers />
               کاربران
-            </Link>
+            </NavLink>
           </li>
           <li className="p-2 rounded-lg transition-all duration-300 ease-in-out cursor-pointer flex items-center justify-center gap-2 text-base text-(--white) no-underline w-[75%] md:w-[65%] border border-(--white) hover:bg-(--purpleHard)">
-            <Link
+            <NavLink
               onClick={() => setIsOpen(false)}
               className="no-underline text-(--white) flex items-center justify-between w-full"
               to={"/orders"}
             >
               <IoBasketOutline />
               سفارشات
-            </Link>
+            </NavLink>
           </li>
           <li className="p-2 rounded-lg transition-all duration-300 ease-in-out cursor-pointer flex items-center justify-center gap-2 text-base text-(--white) no-underline w-[75%] md:w-[65%] border border-(--white) hover:bg-(--purpleHard)">
-            <Link
+            <NavLink
               onClick={() => setIsOpen(false)}
               className="no-underline text-(--white) flex items-center justify-between w-full"
               to={"/offs"}
             >
               <MdOutlineLocalOffer />
               تخفیف ها
-            </Link>
+            </NavLink>
           </li>
         </ul>
       </div>

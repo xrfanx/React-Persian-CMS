@@ -1,11 +1,16 @@
 import { IoSearch } from "react-icons/io5";
 import { FaRegBell } from "react-icons/fa";
 import { CiBrightnessUp } from "react-icons/ci";
+import { MdOutlineDarkMode } from "react-icons/md";
+import { useState } from "react";
 
 export default function Header() {
 
+  const [isDark, setIsDark] = useState(false);
+
   const toggleDarkMode = () => {
     document.body.classList.toggle("dark");
+    setIsDark(!isDark);
 };
 
   return (
@@ -39,16 +44,25 @@ export default function Header() {
         </div>
 
         <div className="flex items-center gap-2 md:gap-4">
-          <button className="bg-(--white) rounded-full w-10 h-10 flex items-center justify-center cursor-pointer transition-all duration-300 ease-out border-0 outline-none text-(--purpleHard) hover:bg-(--purpleHard) hover:text-(--white) hover:border hover:border-(--purpleHard) hover:shadow-[0_0_0.3rem_var(--purpleHard)] hover:rotate-45">
+          <button className="bg-(--white) rounded-full w-10 h-10 flex items-center justify-center
+           cursor-pointer transition-all duration-300 ease-out border-0 outline-none text-(--purpleHard)
+            hover:bg-(--purpleHard) hover:text-(--white) hover:shadow-[0_0_0.3rem_var(--purpleHard)] hover:rotate-45">
             <FaRegBell />
           </button>
           <button className="bg-(--white) rounded-full w-10 h-10 flex items-center
            justify-center cursor-pointer transition-all duration-300 ease-out border-0 outline-none
             text-(--purpleHard) hover:bg-(--purpleHard) hover:text-(--white)
-             hover:border hover:border-(--purpleHard) hover:shadow-[0_0_0.3rem_var(--purpleHard)] hover:rotate-45"
+             hover:shadow-[0_0_0.3rem_var(--purpleHard)] hover:rotate-45"
              onClick={toggleDarkMode}
              >
-            <CiBrightnessUp className="scale-[1.2]" />
+              {
+                isDark ? (
+                  <MdOutlineDarkMode/>
+                ) : (
+                  <CiBrightnessUp className="w-5 h-5"/>
+                )
+              }
+            
           </button>
         </div>
       </div>

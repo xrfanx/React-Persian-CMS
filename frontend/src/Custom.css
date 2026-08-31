@@ -21,6 +21,10 @@
     --purpleHard: #7209C8;
 }
 
+li:has(.active) {
+    background-color: var(--purpleHard);
+}
+
 body.dark {
     --white: #d9c6f6;
     --white-50: #18121F;
