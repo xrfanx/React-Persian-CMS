@@ -162,7 +162,7 @@ export default function Comments() {
           </thead>
 
           <tbody>
-            {allComments.map((comment) => (
+            {allComments.reverse().map((comment) => (
               <tr key={comment.id}>
                 <td className="py-4">{comment.userID}</td>
                 <td className="py-4">{comment.productID}</td>
@@ -190,7 +190,7 @@ export default function Comments() {
                   >
                     ویرایش
                   </button>
-                  <button className={btnStyle}>پاسخ</button>
+                  <button className={btnStyle} onClick={() => toast.error('امکان پاسخ به کامنت برای شما وجود ندارد!')}>پاسخ</button>
                   {comment.isAccept === 0 ? (
                     <button
                       className={btnStyle}

@@ -88,7 +88,7 @@ export default function Sidebar() {
               to={"/orders"}
             >
               <IoBasketOutline />
-              سفارشات
+              سفارش ها
             </NavLink>
           </li>
           <li className="p-2 rounded-lg transition-all duration-300 ease-in-out cursor-pointer flex items-center justify-center gap-2 text-base text-(--white) no-underline w-[75%] md:w-[65%] border border-(--white) hover:bg-(--purpleHard)">
