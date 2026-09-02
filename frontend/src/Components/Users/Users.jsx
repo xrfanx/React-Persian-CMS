@@ -125,7 +125,7 @@ export default function Users() {
                   </tr>
                 </thead>
                 <tbody>
-                  {users.reverse().map((users) => (
+                  {[...users].reverse().map((users) => (
                     <tr key={users.id}>
                       <td className="py-4">
                         {users.firsname} {users.lastname}

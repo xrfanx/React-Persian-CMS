@@ -5,16 +5,21 @@ import HotToast from "../HotToast/HotToast";
 import DeleteModal from "../DeleteModal/DeleteModal";
 
 export default function Orders() {
+
+  // Styles for buttons
   const btnStyle =
     "bg-(--white) border border-(--purpleHard) outline-none rounded-lg p-2 cursor-pointer transition-all duration-300 ease-out relative items-center w-fit text-base mx-2 hover:bg-[var(--purpleHard)] hover:text-[var(--white)] hover:shadow-[0_0_0.3rem_var(--white)]";
   const btnStyleDelete =
     "bg-[rgb(255,39,39)] text-(--white) border border-[rgb(255,39,39)] outline-none rounded-lg p-2 cursor-pointer transition-all duration-300 ease-out relative items-center text-base mx-2 hover:bg-[var(--white)] hover:text-[rgb(255,39,39)] hover:border-[rgb(255,39,39)]";
+  // finish styles for buttons
 
+  // State for orders
   const [orders, setOrders] = useState([]);
   const [isShowDeleteModal, setIsShowDeleteModal] = useState(false);
   const [orderID, setOrderID] = useState(null);
   const [isShowSendToPostModal, setIsShowSendToPostModal] = useState(false);
-
+  // finish state for orders
+  
   // 1. Get all orders
   useEffect(() => {
     const getOrders = async () => {
@@ -70,7 +75,7 @@ export default function Orders() {
       if (!res.ok) throw new Error("Failed to update status");
 
       setOrders((prevOrders) =>
-        prevOrders.reverse().map((order) =>
+        prevOrders.map((order) =>
           order.id === orderID ? { ...order, isActive: newStatus } : order,
         ),
       );
@@ -127,7 +132,7 @@ export default function Orders() {
             </thead>
 
             <tbody>
-              {orders.reverse().map((order, index) => (
+              {[...orders].reverse().map((order, index) => (
                 <tr key={order.id || index}>
                   <td className="py-4">{order.id}</td>
                   <td>
