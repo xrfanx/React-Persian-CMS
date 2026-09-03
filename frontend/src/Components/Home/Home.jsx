@@ -24,45 +24,45 @@ export default function Home() {
   const MAIN_URL = "http://localhost:3000/api";
 
   // دریافت اطلاعات آمار و آخرین سفارش‌ها از API
-  const fetchDashboardData = async () => {
-    try {
-      setLoading(true);
-
-      const [usersRes, productsRes, ordersRes, commentsRes] = await Promise.all(
-        [
-          fetch(`${MAIN_URL}/users/`),
-          fetch(`${MAIN_URL}/products/`),
-          fetch(`${MAIN_URL}/orders/`),
-          fetch(`${MAIN_URL}/comments/`),
-        ],
-      );
-
-      const users = usersRes.ok ? await usersRes.json() : [];
-      const products = productsRes.ok ? await productsRes.json() : [];
-      const orders = ordersRes.ok ? await ordersRes.json() : [];
-      const comments = commentsRes.ok ? await commentsRes.json() : [];
-
-      // آپدیت تعداد آمارها
-      setStats({
-        usersCount: Array.isArray(users) ? users.length : 0,
-        productsCount: Array.isArray(products) ? products.length : 0,
-        ordersCount: Array.isArray(orders) ? orders.length : 0,
-        commentsCount: Array.isArray(comments) ? comments.length : 0,
-      });
-
-      // گرفتن ۵ سفارش آخر
-      if (Array.isArray(orders)) {
-        setRecentOrders(orders.slice(0, 5));
-        // ممکنه سفارش بیشتر از 5 تا باشد پس فقط تا 5 تای انهارو  نشون میدیم
-      }
-    } catch (error) {
-      console.error("خطا در دریافت اطلاعات داشبورد:", error);
-    } finally {
-      setLoading(false);
-    }
-  };
 
   useEffect(() => {
+    const fetchDashboardData = async () => {
+      try {
+        setLoading(true);
+
+        const [usersRes, productsRes, ordersRes, commentsRes] =
+          await Promise.all([
+            fetch(`${MAIN_URL}/users/`),
+            fetch(`${MAIN_URL}/products/`),
+            fetch(`${MAIN_URL}/orders/`),
+            fetch(`${MAIN_URL}/comments/`),
+          ]);
+
+        const users = usersRes.ok ? await usersRes.json() : [];
+        const products = productsRes.ok ? await productsRes.json() : [];
+        const orders = ordersRes.ok ? await ordersRes.json() : [];
+        const comments = commentsRes.ok ? await commentsRes.json() : [];
+
+        // آپدیت تعداد آمارها
+        setStats({
+          usersCount: Array.isArray(users) ? users.length : 0,
+          productsCount: Array.isArray(products) ? products.length : 0,
+          ordersCount: Array.isArray(orders) ? orders.length : 0,
+          commentsCount: Array.isArray(comments) ? comments.length : 0,
+        });
+
+        // گرفتن ۵ سفارش آخر
+        if (Array.isArray(orders)) {
+          setRecentOrders(orders.slice(0, 5));
+          // ممکنه سفارش بیشتر از 5 تا باشد پس فقط تا 5 تای انهارو  نشون میدیم
+        }
+      } catch (error) {
+        console.error("خطا در دریافت اطلاعات داشبورد:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
     fetchDashboardData();
   }, []);
 
@@ -150,7 +150,7 @@ export default function Home() {
       {/* ۲. بخش آخرین سفارش‌ ها */}
       <div className="bg-(--purple) w-full min-h-110 rounded-tr-4xl rounded-bl-4xl p-6">
         {recentOrders.length === 0 ? (
-          <ErrorBox error="هیچ سفارشی یافت نشد" className={"-mt-6"}/>
+          <ErrorBox error="هیچ سفارشی یافت نشد" className={"-mt-6"} />
         ) : (
           <div className="overflow-x-auto">
             <h2 className="text-xl font-bold mb-6 border-b border-purple-400/30 pb-3">

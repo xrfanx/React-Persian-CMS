@@ -14,7 +14,7 @@ adminsRouter.get("/", (req, res) => {
     if (err) {
       res.send(null);
     } else {
-      res.send(result);
+      res.send(result[0]);
     }
   });
 });

@@ -3,27 +3,57 @@ import { FaRegBell } from "react-icons/fa";
 import { CiBrightnessUp } from "react-icons/ci";
 import { MdOutlineDarkMode } from "react-icons/md";
 import { useState } from "react";
+import ProfilePopup from "../ProfilePopup/ProfilePopup";
+import { useEffect } from "react";
 
 export default function Header() {
-
   const [isDark, setIsDark] = useState(false);
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const [adminInfo, setAdminInfo] = useState({});
+  const MAIN_URL = "http://localhost:3000/api";
 
   const toggleDarkMode = () => {
     document.body.classList.toggle("dark");
     setIsDark(!isDark);
-};
+  };
+
+  useEffect(() => {
+  const fetchAdminInfo = async () => {
+    const token = localStorage.getItem("token");
+
+    const response = await fetch(`${MAIN_URL}/admins`, {
+      headers: {
+        authorization: token,
+      },
+    });
+
+    const admin = await response.json();
+
+    setAdminInfo(admin);
+  };
+
+  fetchAdminInfo();
+}, []);
 
   return (
     <div className="sticky top-0 z-10 flex flex-col md:flex-row justify-between items-center w-full p-4 bg-(--purple) text-(--white) h-auto md:h-20 gap-4 md:gap-0 rounded-tr-4xl rounded-bl-4xl">
       <div className="flex items-center gap-4">
-        <img
-          className="w-12 h-12 md:w-16 md:h-16 rounded-full object-cover shadow-[0_0_0.3rem_var(--white)] transition-all duration-300 ease-in-out"
-          src="/image/profile.webp"
-          alt="admin-profile"
-        />
+        <button
+          onClick={() => setIsProfileOpen(true)}
+          className="rounded-full cursor-pointer outline-none border-0"
+        >
+          <img
+            className="w-12 h-12 md:w-16 md:h-16 rounded-full object-cover
+    shadow-[0_0_0.3rem_var(--white)]
+    transition-all duration-300 ease-in-out
+    hover:scale-105"
+            src={adminInfo.img || "/image/noprofile.png"}
+            alt="admin-profile"
+          />
+        </button>
         <div className="flex flex-col">
-          <h1 className="text-lg md:text-[1.3rem] font-bold">عرفان روزبهانی</h1>
-          <h3 className="text-sm md:text-base">برنامه نویس فرانت اند</h3>
+          <h1 className="text-lg md:text-[1.3rem] font-bold">{adminInfo.firstname + " " + adminInfo.lastname}</h1>
+          <h3 className="text-sm md:text-base">{adminInfo.task}</h3>
         </div>
       </div>
 
@@ -35,37 +65,42 @@ export default function Header() {
             type="text"
             placeholder="جستجو ..."
           />
-          <button className="flex justify-center items-center shrink-0 text-center bg-(--purple)
+          <button
+            className="flex justify-center items-center shrink-0 text-center bg-(--purple)
             top-0 text-(--white) rounded-lg outline-none border-0 cursor-pointer w-14 h-7 
             transition-all duration-300 ease-out hover:bg-(--purpleHard) hover:border hover:border-(--purpleHard)
-             hover:text-(--white)">
+             hover:text-(--white)"
+          >
             <IoSearch className="w-5 h-5 transition-all duration-300 ease-out hover:rotate-[-25deg]" />
           </button>
         </div>
 
         <div className="flex items-center gap-2 md:gap-4">
-          <button className="bg-(--white) rounded-full w-10 h-10 flex items-center justify-center
+          <button
+            className="bg-(--white) rounded-full w-10 h-10 flex items-center justify-center
            cursor-pointer transition-all duration-300 ease-out border-0 outline-none text-(--purpleHard)
-            hover:bg-(--purpleHard) hover:text-(--white) hover:shadow-[0_0_0.3rem_var(--purpleHard)] hover:rotate-45">
+            hover:bg-(--purpleHard) hover:text-(--white) hover:shadow-[0_0_0.3rem_var(--purpleHard)] hover:rotate-45"
+          >
             <FaRegBell />
           </button>
-          <button className="bg-(--white) rounded-full w-10 h-10 flex items-center
+          <button
+            className="bg-(--white) rounded-full w-10 h-10 flex items-center
            justify-center cursor-pointer transition-all duration-300 ease-out border-0 outline-none
             text-(--purpleHard) hover:bg-(--purpleHard) hover:text-(--white)
              hover:shadow-[0_0_0.3rem_var(--purpleHard)] hover:rotate-45"
-             onClick={toggleDarkMode}
-             >
-              {
-                isDark ? (
-                  <MdOutlineDarkMode/>
-                ) : (
-                  <CiBrightnessUp className="w-5 h-5"/>
-                )
-              }
-            
+            onClick={toggleDarkMode}
+          >
+            {isDark ? (
+              <MdOutlineDarkMode />
+            ) : (
+              <CiBrightnessUp className="w-5 h-5" />
+            )}
           </button>
         </div>
       </div>
+      {isProfileOpen && (
+        <ProfilePopup onClose={() => setIsProfileOpen(false)} />
+      )}
     </div>
   );
 }

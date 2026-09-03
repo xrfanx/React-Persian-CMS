@@ -106,7 +106,7 @@ export default function Orders() {
   };
 
   return (
-    <div className="bg-(--purple) text-(--purpleHard) mt-4 w-full h-124 rounded-tr-4xl rounded-bl-4xl p-4">
+    <div className="bg-(--purple) text-(--purpleHard) mt-4 mb-60 w-full h-124 rounded-tr-4xl rounded-bl-4xl p-4">
       {/* ErrorBox renders only when there are no orders */}
       {orders.length === 0 ? (
         <ErrorBox error="سفارش جدیدی یافت نشد." className="-mt-4" />

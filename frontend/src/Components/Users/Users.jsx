@@ -106,7 +106,7 @@ export default function Users() {
 
   return (
     <>
-      <div className="bg-(--purple) mt-4 w-full p-8 min-h-124 rounded-tr-4xl rounded-bl-4xl">
+      <div className="bg-(--purple) mt-4 mb-50 w-full p-8 min-h-124 rounded-tr-4xl rounded-bl-4xl">
         {users.length ? (
           <>
             <h1 className="text-4xl font-bold text-center text-(--white) -mt-4 mb-4">

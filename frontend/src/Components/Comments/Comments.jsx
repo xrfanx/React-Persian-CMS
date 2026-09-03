@@ -142,7 +142,7 @@ export default function Comments() {
 
   return (
     <div
-      className="w-full bg-(--purple) min-h-124 mt-4 rounded-tr-4xl
+      className="w-full bg-(--purple) min-h-124 mt-4 mb-50 rounded-tr-4xl
      rounded-bl-4xl p-6"
     >
       {allComments.length ? (
