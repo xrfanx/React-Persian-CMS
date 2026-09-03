@@ -207,7 +207,7 @@ useEffect(() => {
       </div>
 
       {/* نمایش جدول یا پیغام عدم وجود داده */}
-      <div className="bg-(--purple) w-full min-h-96 rounded-tr-4xl rounded-bl-4xl p-6 shadow-xl">
+      <div className="bg-(--purple) w-full min-h-80 rounded-tr-4xl rounded-bl-4xl p-6 shadow-xl">
         {offs.length === 0 ? (
           <ErrorBox error="هیچ تخفیفی یافت نشد" className="-mt-6" />
         ) : (
@@ -242,7 +242,7 @@ useEffect(() => {
                       <span
                         className={`px-3 py-2 rounded text-xs inline-block w-20 text-center ${off.isActive === 1 ? "bg-green-500" : "bg-red-500"}`}
                       >
-                        {off.isActive === 1 ? "تایید شده" : "غیرفعال"}
+                        {off.isActive === 1 ? "فعال" : "غیرفعال"}
                       </span>
                     </td>
                     <td className="p-3 text-center space-x-2 space-x-reverse">
