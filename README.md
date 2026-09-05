@@ -15,13 +15,13 @@
 
 🎥 ویدئوی معرفی
 
-// video local
-<video src="/frontend/public/video/readmevideo1.mp4" controls="controls" width="100%"></video>
-
+<video width="100%" controls>
+  <source src="./frontend/public/video/readmevideo1.mp4" type="video/mp4">
+</video>
 
 عکس های پروژه 
 
-// images local
+
 <img src="/frontend/public/image/readmeimage1.png" width="100%">
 
 <img src="/frontend/public/image/readmeimage3.png" width="100%">
