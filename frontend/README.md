@@ -1,16 +1,135 @@
-# React + Vite
+🟣 Xrfan CMS Panel
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+یک پنل مدیریت فارسی و راست‌چین (RTL) که با استفاده از React طراحی شده و برای مدیریت بخش‌های مختلف یک فروشگاه اینترنتی ساخته شده است.
 
-Currently, two official plugins are available:
+این پروژه به‌عنوان یک پروژه عملی برای یادگیری و پیاده‌سازی مفاهیم Front-End و Back-End توسعه داده شده و شامل رابط کاربری فارسی، مدیریت اطلاعات و ارتباط با API است.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+تمام فرانت این پروژه توسط Xrfan ساخته شده است 
+بک اند و دیتابیس توسط منابع دیگری ساخته و از آنها برای توسعه این پروژه استفاده شده است.
 
-## React Compiler
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the ESLint configuration
+📸 پیش‌نمایش پروژه
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+این پروژه به‌صورت آنلاین Deploy نشده است؛ بنابراین برای نمایش ظاهر و عملکرد آن، تصاویر و ویدئوی کوتاهی از پروژه در این بخش قرار داده شده است.
+
+🎥 ویدئوی معرفی
+
+// video local
+<video src="/frontend/public/video/readmevideo1.mp4" controls="controls" width="100%"></video>
+
+
+عکس های پروژه 
+
+// images local
+<img src="/frontend/public/image/readmeimage1.png" width="100%">
+
+<img src="/frontend/public/image/readmeimage3.png" width="100%">
+
+<img src="/frontend/public/image/readmeimage2.png" width="100%">
+
+✨ امکانات پروژه
+داشبورد مدیریت
+مدیریت کاربران
+مدیریت محصولات
+مدیریت سفارش‌ها
+مدیریت کامنت‌ها
+مدیریت تخفیف‌ها
+نمایش جزئیات اطلاعات
+حذف اطلاعات با استفاده از Modal
+جست‌وجو و فیلتر اطلاعات
+رابط کاربری کاملاً فارسی
+پشتیبانی از حالت راست‌چین (RTL)
+حالت Dark Mode
+طراحی Responsive
+استفاده از Modal و Portal
+ارتباط Front-End با Back-End از طریق API
+مدیریت State با Context API
+نمایش نمودارها و اطلاعات آماری
+
+
+
+🛠️ تکنولوژی‌های استفاده‌شده
+Front-End
+React
+JavaScript
+Tailwind CSS
+React Router
+Context API
+React DOM Portal
+Back-End
+Node.js
+Express.js
+Database
+MySQL
+ابزارهای توسعه
+Git
+GitHub
+VS Code
+phpMyAdmin
+
+🖥️ Front-End
+
+بخش Front-End پروژه با React توسعه داده شده است.
+
+در این بخش، رابط کاربری پنل مدیریت، صفحات مختلف، کامپوننت‌ها، Modalها، مدیریت State و ارتباط با API پیاده‌سازی شده‌اند.
+
+از Tailwind CSS نیز برای طراحی و استایل‌دهی بخش زیادی از رابط کاربری استفاده شده است.
+
+⚙️ Back-End
+
+بخش Back-End با استفاده از Node.js و Express.js توسعه داده شده است.
+
+🗄️ Database
+
+دیتابیس پروژه با MySQL طراحی شده است.
+
+فایل مربوط به ساختار و اطلاعات اولیه دیتابیس در پوشه database قرار گرفته است.
+
+برای اجرای دیتابیس می‌توانید فایل SQL را با استفاده از phpMyAdmin یا MySQL اجرا کنید.
+
+
+📱 طراحی Responsive
+
+رابط کاربری پروژه برای اندازه‌های مختلف صفحه طراحی شده است تا استفاده از پنل در نمایشگرهای مختلف امکان‌پذیر باشد.
+
+🌙 حالت تاریک
+
+پروژه دارای Dark Mode است و کاربر می‌تواند ظاهر پنل را بین حالت روشن و تاریک تغییر دهد.
+
+🎯 هدف پروژه
+
+هدف اصلی از ساخت این پروژه، تجربه عملی در توسعه یک پروژه نسبتاً بزرگ‌تر با استفاده از React و آشنایی با فرآیند ارتباط Front-End، Back-End و Database بوده است.
+
+در طول توسعه پروژه، مفاهیمی مانند:
+
+Component-Based Architecture
+State Management
+Context API
+API Requests
+CRUD Operations
+React Portal
+Routing
+Responsive Design
+REST API
+Database Relations
+
+به‌صورت عملی مورد استفاده قرار گرفته‌اند.
+
+📌 وضعیت پروژه
+
+🟢 پروژه در وضعیت قابل استفاده قرار دارد.
+
+هسته اصلی پنل و قابلیت‌های اصلی پیاده‌سازی شده‌اند و برخی قابلیت‌های جزئی که تأثیر مهمی در عملکرد اصلی پروژه ندارند، ممکن است در نسخه فعلی وجود نداشته باشند.
+
+👨‍💻 توسعه‌دهنده
+
+ساخته‌شده توسط عرفان روزبهانی
+
+GitHub:
+
+https://github.com/xrfanx
+
+⭐ اگر پروژه برایتان مفید بود
+
+اگر این پروژه برای شما جالب بود، خوشحال می‌شوم Repository را ⭐ Star کنید.

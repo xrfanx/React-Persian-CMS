@@ -10,7 +10,7 @@ export default function App() {
     <>
       <Sidebar />
 
-      <div className="flex-4 mr-56 p-4">
+      <div className="flex-4 mr-56 p-4 max-sm:w-full max-sm:ml-0 max-sm:mr-0 max-sm:p-0">
         <Header />
 
         {router}
